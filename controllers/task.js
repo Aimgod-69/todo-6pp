@@ -23,7 +23,7 @@ export const newTask = async (req, res, next) => {
   }
 };
 
-export const getMyTasks = async (req, res,next) => {
+export const getMyTasks = async (req, res, next) => {
   try {
     const userId = req.user._id;
 
@@ -42,7 +42,7 @@ export const updateTask = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const task = await Task.find({ _id: id });
+    const task = await Task.findById(id);
 
     task.isCompleted = !task.isCompleted;
 
